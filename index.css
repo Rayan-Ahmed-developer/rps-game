@@ -1,0 +1,235 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #0a0a0f;
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.header h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.header p {
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+/* SCOREBOARD */
+.scoreboard {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background: #13131a;
+  border: 1px solid #1e1e2e;
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+}
+
+.panel {
+  text-align: center;
+}
+
+.panel-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.display {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid #1e1e2e;
+  background: #0f0f18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto 0.75rem;
+  transition: transform 0.2s;
+}
+
+.display.pulse {
+  animation: pulse 0.35s ease;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.score-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.vs-badge {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #555;
+  border: 1px solid #1e1e2e;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  background: #0f0f18;
+}
+
+/* STREAK */
+.streak-bar {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 1.5rem;
+  min-height: 12px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1e1e2e;
+  transition: background 0.2s;
+}
+
+.dot.w { background: #1D9E75; }
+.dot.l { background: #D85A30; }
+.dot.t { background: #EF9F27; }
+
+/* CHOICE BUTTONS */
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.choice-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid #1e1e2e;
+  background: #13131a;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.choice-btn:hover {
+  transform: scale(1.1);
+  border-color: #3a3a50;
+  background: #1a1a28;
+}
+
+.choice-btn:active {
+  transform: scale(0.95);
+}
+
+.choice-label {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  color: #555;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+/* MESSAGE */
+.msg-wrap {
+  text-align: center;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+#msg {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.55rem 1.4rem;
+  border-radius: 10px;
+  background: #13131a;
+  border: 1px solid #1e1e2e;
+  color: #aaa;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+#msg.win  { background: #0d2b1f; color: #1D9E75; border-color: #1D9E75; }
+#msg.lose { background: #2b1208; color: #D85A30; border-color: #D85A30; }
+#msg.tie  { background: #2b2208; color: #EF9F27; border-color: #EF9F27; }
+
+/* RESET */
+.reset-wrap {
+  text-align: center;
+}
+
+.reset-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #555;
+  background: transparent;
+  border: 1px solid #1e1e2e;
+  padding: 0.4rem 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.reset-btn:hover {
+  border-color: #3a3a50;
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 400px) {
+  .header h1 { font-size: 1.5rem; }
+  .score-num  { font-size: 2rem; }
+  .display    { width: 68px; height: 68px; font-size: 1.8rem; }
+}
